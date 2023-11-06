@@ -1,14 +1,8 @@
 name: Scaning
 on:
   workflow_call:
-    push:
-      branches:
-        - main
-    pull_request:
-      branches: [ "main" ]    
-
- 
-
+    workflows: ["Build"]
+    
 jobs:
   scan:
     runs-on: ubuntu-latest
