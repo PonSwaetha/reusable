@@ -1,7 +1,10 @@
 name: Scaning
 on:
   workflow_call:
-    workflows: ["Build"]
+      inputs:
+        file_path:
+          required: true
+          type: string
     
 jobs:
   scan:
