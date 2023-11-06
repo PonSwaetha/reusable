@@ -1,24 +1,25 @@
 name: Scaning
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches: [ "main" ]    
+  workflow_call:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches: [ "main" ]    
 
  
 
-jobs:
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+  jobs:
+    scan:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       
-    - name: Run Appscan cloud SAST scan
-      uses: alphayax/appscan-sast-action@v1
-      with:
-        api-secret: "Bje41CU/TOW8uNPbGD/ubx7vUQQhe4qnfsUTzvNg1Tvv"
-        api-id: "e1ff5c31-c7fc-97ef-7083-db6bb4412bc1"
-        application-id: "f80c4c7a-7877-4aa2-8384-9bf4ae293962"
+      - name: Run Appscan cloud SAST scan
+        uses: alphayax/appscan-sast-action@v1
+        with:
+          api-secret: "Bje41CU/TOW8uNPbGD/ubx7vUQQhe4qnfsUTzvNg1Tvv"
+          api-id: "e1ff5c31-c7fc-97ef-7083-db6bb4412bc1"
+          application-id: "f80c4c7a-7877-4aa2-8384-9bf4ae293962"
     
